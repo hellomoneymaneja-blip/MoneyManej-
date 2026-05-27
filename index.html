@@ -6,14 +6,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MoneyManejā</title>
 <script src="https://cdn.tailwindcss.com"></script>
+
 <style>
-html{
+html {
   scroll-behavior:smooth;
+}
+body {
+  background:#f8fafc;
 }
 </style>
 </head>
 
-<body class="bg-slate-50 text-black">
+<body class="text-black">
 
 <header class="sticky top-0 z-50 border-b bg-white/90 backdrop-blur">
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -25,12 +29,12 @@ html{
     </div>
 
     <nav class="hidden md:flex gap-8 text-sm font-semibold">
-      <a href="#products" class="hover:text-gray-500">Products</a>
-      <a href="#features" class="hover:text-gray-500">Features</a>
-      <a href="#about" class="hover:text-gray-500">About</a>
+      <a href="#products">Products</a>
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
     </nav>
 
-    <button onclick="scrollToProducts()" class="bg-black text-white px-5 py-2 rounded-full font-semibold hover:scale-105 transition">
+    <button onclick="scrollToProducts()" class="bg-black text-white px-5 py-2 rounded-full font-semibold">
       Download Free
     </button>
   </div>
@@ -53,50 +57,33 @@ html{
       </p>
 
       <div class="mt-8 flex flex-wrap gap-4">
-        <button onclick="scrollToProducts()" class="bg-black text-white px-8 py-4 rounded-full font-bold hover:scale-105 transition">
+        <button onclick="scrollToProducts()" class="bg-black text-white px-8 py-4 rounded-full font-bold">
           Explore Products
         </button>
 
-        <button onclick="showDemo()" class="border-2 border-black px-8 py-4 rounded-full font-bold hover:bg-black hover:text-white transition">
+        <button onclick="showDemo()" class="border-2 border-black px-8 py-4 rounded-full font-bold">
           View Demo
         </button>
       </div>
     </div>
 
     <div class="bg-white rounded-[2rem] shadow-2xl p-8 border">
-      <div class="flex items-center justify-between mb-8">
-        <div>
-          <h2 class="text-2xl font-black">Monthly Budget</h2>
-          <p class="text-gray-500">Financial Overview</p>
-        </div>
-
-        <div class="bg-black text-white px-4 py-2 rounded-xl font-bold">
-          Premium
-        </div>
-      </div>
+      <h2 class="text-3xl font-black mb-6">Why MoneyManejā?</h2>
 
       <div class="space-y-5">
         <div class="bg-gray-100 rounded-2xl p-5">
-          <div class="flex justify-between mb-3">
-            <span>Income Goal</span>
-            <span class="font-black">₹1,00,000</span>
-          </div>
-
-          <div class="h-3 bg-gray-300 rounded-full overflow-hidden">
-            <div class="h-full w-3/4 bg-black"></div>
-          </div>
+          <h3 class="font-black text-xl">⚡ Instant Downloads</h3>
+          <p class="text-gray-600 mt-2">Access your planners immediately.</p>
         </div>
 
-        <div class="grid grid-cols-2 gap-4">
-          <div class="bg-gray-100 rounded-2xl p-5">
-            <p class="text-gray-500 text-sm">Savings</p>
-            <h3 class="text-3xl font-black mt-2">₹45k</h3>
-          </div>
+        <div class="bg-gray-100 rounded-2xl p-5">
+          <h3 class="font-black text-xl">📱 Works Everywhere</h3>
+          <p class="text-gray-600 mt-2">Mobile, iPad, desktop, or print.</p>
+        </div>
 
-          <div class="bg-gray-100 rounded-2xl p-5">
-            <p class="text-gray-500 text-sm">Expenses</p>
-            <h3 class="text-3xl font-black mt-2">₹28k</h3>
-          </div>
+        <div class="bg-gray-100 rounded-2xl p-5">
+          <h3 class="font-black text-xl">🔥 Productivity Focused</h3>
+          <p class="text-gray-600 mt-2">Designed for ambitious people.</p>
         </div>
       </div>
     </div>
@@ -109,93 +96,306 @@ html{
     <h2 class="text-4xl font-black">Why People Love MoneyManejā</h2>
     <p class="text-gray-600 mt-4">Modern planners built for productivity and growth.</p>
   </div>
-
-  <div class="grid md:grid-cols-3 gap-6">
-
-    <div class="bg-white border rounded-3xl p-8 hover:shadow-2xl transition">
-      <div class="text-5xl mb-5">✨</div>
-      <h3 class="text-2xl font-black">Minimal Design</h3>
-      <p class="text-gray-600 mt-3 leading-7">Clean layouts with zero distractions.</p>
-    </div>
-
-    <div class="bg-white border rounded-3xl p-8 hover:shadow-2xl transition">
-      <div class="text-5xl mb-5">⚡</div>
-      <h3 class="text-2xl font-black">Instant Access</h3>
-      <p class="text-gray-600 mt-3 leading-7">Download immediately after purchase.</p>
-    </div>
-
-    <div class="bg-white border rounded-3xl p-8 hover:shadow-2xl transition">
-      <div class="text-5xl mb-5">📱</div>
-      <h3 class="text-2xl font-black">Works Everywhere</h3>
-      <p class="text-gray-600 mt-3 leading-7">Use on iPad, Android, desktop, or print it.</p>
-    </div>
-
-  </div>
 </section>
 
 <section id="products" class="bg-gray-50 border-t px-6 py-24">
   <div class="max-w-7xl mx-auto">
 
-    <div class="flex flex-col md:flex-row justify-between md:items-end gap-6 mb-16">
-      <div>
-        <h2 class="text-4xl font-black">Explore Planners</h2>
-        <p class="text-gray-600 mt-3">Professional templates to improve your life.</p>
-      </div>
+    <div class="mb-16">
+      <h2 class="text-4xl font-black">Explore All 11 Planners</h2>
+      <p class="text-gray-600 mt-3">Professional templates to improve your life.</p>
     </div>
 
     <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
-
-      <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
-        <div class="flex justify-between items-center mb-5">
-          <span class="text-5xl">📈</span>
-          <span class="bg-gray-100 px-3 py-1 rounded-full text-xs font-bold uppercase">
-            Business
-          </span>
-        </div>
-
-        <h3 class="text-2xl font-black">Business Planner</h3>
-        <p class="text-gray-600 mt-4 leading-7">
-          Revenue forecasting and weekly planning.
-        </p>
-
-        <div class="flex justify-between items-center mt-8 border-t pt-6">
-          <div>
-            <p class="text-gray-500 text-sm">120 Pages</p>
-            <h4 class="text-3xl font-black">Free</h4>
-          </div>
-
-          <a href="https://drive.google.com" target="_blank" class="bg-black text-white px-5 py-3 rounded-full font-bold">
-            Download
-          </a>
-        </div>
+      
+    <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
+      <div class="flex justify-between items-center mb-5">
+        <span class="text-5xl">📈</span>
+        <span class="bg-gray-100 px-3 py-1 rounded-full text-xs font-bold uppercase">
+          Planner
+        </span>
       </div>
 
-      <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
-        <div class="flex justify-between items-center mb-5">
-          <span class="text-5xl">💰</span>
-          <span class="bg-gray-100 px-3 py-1 rounded-full text-xs font-bold uppercase">
-            Finance
-          </span>
+      <h3 class="text-2xl font-black">Business Planner</h3>
+
+      <p class="text-gray-600 mt-4 leading-7">
+        Revenue forecasting and business goals.
+      </p>
+
+      <div class="flex justify-between items-center mt-8 border-t pt-6">
+        <div>
+          <p class="text-gray-500 text-sm">120 Pages</p>
+          <h4 class="text-3xl font-black">Free</h4>
         </div>
 
-        <h3 class="text-2xl font-black">Budget Planner</h3>
-        <p class="text-gray-600 mt-4 leading-7">
-          Track expenses and build savings habits.
-        </p>
-
-        <div class="flex justify-between items-center mt-8 border-t pt-6">
-          <div>
-            <p class="text-gray-500 text-sm">60 Pages</p>
-            <h4 class="text-3xl font-black">Free</h4>
-          </div>
-
-          <a href="https://drive.google.com" target="_blank" class="bg-black text-white px-5 py-3 rounded-full font-bold">
-            Download
-          </a>
-        </div>
+        <button onclick="downloadPlanner('Business Planner')" class="bg-black text-white px-5 py-3 rounded-full font-bold hover:scale-105 transition">
+          Download
+        </button>
       </div>
+    </div>
+
+    <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
+      <div class="flex justify-between items-center mb-5">
+        <span class="text-5xl">💰</span>
+        <span class="bg-gray-100 px-3 py-1 rounded-full text-xs font-bold uppercase">
+          Planner
+        </span>
+      </div>
+
+      <h3 class="text-2xl font-black">Budget Planner</h3>
+
+      <p class="text-gray-600 mt-4 leading-7">
+        Track savings and monthly expenses.
+      </p>
+
+      <div class="flex justify-between items-center mt-8 border-t pt-6">
+        <div>
+          <p class="text-gray-500 text-sm">60 Pages</p>
+          <h4 class="text-3xl font-black">Free</h4>
+        </div>
+
+        <button onclick="downloadPlanner('Budget Planner')" class="bg-black text-white px-5 py-3 rounded-full font-bold hover:scale-105 transition">
+          Download
+        </button>
+      </div>
+    </div>
+
+    <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
+      <div class="flex justify-between items-center mb-5">
+        <span class="text-5xl">📊</span>
+        <span class="bg-gray-100 px-3 py-1 rounded-full text-xs font-bold uppercase">
+          Planner
+        </span>
+      </div>
+
+      <h3 class="text-2xl font-black">Investor Journal</h3>
+
+      <p class="text-gray-600 mt-4 leading-7">
+        Track investments and trading performance.
+      </p>
+
+      <div class="flex justify-between items-center mt-8 border-t pt-6">
+        <div>
+          <p class="text-gray-500 text-sm">80 Pages</p>
+          <h4 class="text-3xl font-black">Free</h4>
+        </div>
+
+        <button onclick="downloadPlanner('Investor Journal')" class="bg-black text-white px-5 py-3 rounded-full font-bold hover:scale-105 transition">
+          Download
+        </button>
+      </div>
+    </div>
+
+    <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
+      <div class="flex justify-between items-center mb-5">
+        <span class="text-5xl">🚀</span>
+        <span class="bg-gray-100 px-3 py-1 rounded-full text-xs font-bold uppercase">
+          Planner
+        </span>
+      </div>
+
+      <h3 class="text-2xl font-black">Startup Planner</h3>
+
+      <p class="text-gray-600 mt-4 leading-7">
+        Plan milestones and startup growth.
+      </p>
+
+      <div class="flex justify-between items-center mt-8 border-t pt-6">
+        <div>
+          <p class="text-gray-500 text-sm">100 Pages</p>
+          <h4 class="text-3xl font-black">Free</h4>
+        </div>
+
+        <button onclick="downloadPlanner('Startup Planner')" class="bg-black text-white px-5 py-3 rounded-full font-bold hover:scale-105 transition">
+          Download
+        </button>
+      </div>
+    </div>
+
+    <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
+      <div class="flex justify-between items-center mb-5">
+        <span class="text-5xl">🏦</span>
+        <span class="bg-gray-100 px-3 py-1 rounded-full text-xs font-bold uppercase">
+          Planner
+        </span>
+      </div>
+
+      <h3 class="text-2xl font-black">Wealth Planner</h3>
+
+      <p class="text-gray-600 mt-4 leading-7">
+        Build savings and reduce debt.
+      </p>
+
+      <div class="flex justify-between items-center mt-8 border-t pt-6">
+        <div>
+          <p class="text-gray-500 text-sm">70 Pages</p>
+          <h4 class="text-3xl font-black">Free</h4>
+        </div>
+
+        <button onclick="downloadPlanner('Wealth Planner')" class="bg-black text-white px-5 py-3 rounded-full font-bold hover:scale-105 transition">
+          Download
+        </button>
+      </div>
+    </div>
+
+    <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
+      <div class="flex justify-between items-center mb-5">
+        <span class="text-5xl">⚡</span>
+        <span class="bg-gray-100 px-3 py-1 rounded-full text-xs font-bold uppercase">
+          Planner
+        </span>
+      </div>
+
+      <h3 class="text-2xl font-black">Side Hustle Planner</h3>
+
+      <p class="text-gray-600 mt-4 leading-7">
+        Grow your side business faster.
+      </p>
+
+      <div class="flex justify-between items-center mt-8 border-t pt-6">
+        <div>
+          <p class="text-gray-500 text-sm">55 Pages</p>
+          <h4 class="text-3xl font-black">Free</h4>
+        </div>
+
+        <button onclick="downloadPlanner('Side Hustle Planner')" class="bg-black text-white px-5 py-3 rounded-full font-bold hover:scale-105 transition">
+          Download
+        </button>
+      </div>
+    </div>
+
+    <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
+      <div class="flex justify-between items-center mb-5">
+        <span class="text-5xl">💪</span>
+        <span class="bg-gray-100 px-3 py-1 rounded-full text-xs font-bold uppercase">
+          Planner
+        </span>
+      </div>
+
+      <h3 class="text-2xl font-black">Gym Planner</h3>
+
+      <p class="text-gray-600 mt-4 leading-7">
+        Track workouts and fitness progress.
+      </p>
+
+      <div class="flex justify-between items-center mt-8 border-t pt-6">
+        <div>
+          <p class="text-gray-500 text-sm">50 Pages</p>
+          <h4 class="text-3xl font-black">Free</h4>
+        </div>
+
+        <button onclick="downloadPlanner('Gym Planner')" class="bg-black text-white px-5 py-3 rounded-full font-bold hover:scale-105 transition">
+          Download
+        </button>
+      </div>
+    </div>
+
+    <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
+      <div class="flex justify-between items-center mb-5">
+        <span class="text-5xl">❤️</span>
+        <span class="bg-gray-100 px-3 py-1 rounded-full text-xs font-bold uppercase">
+          Planner
+        </span>
+      </div>
+
+      <h3 class="text-2xl font-black">Relationship Planner</h3>
+
+      <p class="text-gray-600 mt-4 leading-7">
+        Strengthen your relationships.
+      </p>
+
+      <div class="flex justify-between items-center mt-8 border-t pt-6">
+        <div>
+          <p class="text-gray-500 text-sm">60 Pages</p>
+          <h4 class="text-3xl font-black">Free</h4>
+        </div>
+
+        <button onclick="downloadPlanner('Relationship Planner')" class="bg-black text-white px-5 py-3 rounded-full font-bold hover:scale-105 transition">
+          Download
+        </button>
+      </div>
+    </div>
+
+    <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
+      <div class="flex justify-between items-center mb-5">
+        <span class="text-5xl">👨‍👩‍👧‍👦</span>
+        <span class="bg-gray-100 px-3 py-1 rounded-full text-xs font-bold uppercase">
+          Planner
+        </span>
+      </div>
+
+      <h3 class="text-2xl font-black">Family Planner</h3>
+
+      <p class="text-gray-600 mt-4 leading-7">
+        Organize family schedules and goals.
+      </p>
+
+      <div class="flex justify-between items-center mt-8 border-t pt-6">
+        <div>
+          <p class="text-gray-500 text-sm">65 Pages</p>
+          <h4 class="text-3xl font-black">Free</h4>
+        </div>
+
+        <button onclick="downloadPlanner('Family Planner')" class="bg-black text-white px-5 py-3 rounded-full font-bold hover:scale-105 transition">
+          Download
+        </button>
+      </div>
+    </div>
+
+    <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
+      <div class="flex justify-between items-center mb-5">
+        <span class="text-5xl">📚</span>
+        <span class="bg-gray-100 px-3 py-1 rounded-full text-xs font-bold uppercase">
+          Planner
+        </span>
+      </div>
+
+      <h3 class="text-2xl font-black">Study Planner</h3>
+
+      <p class="text-gray-600 mt-4 leading-7">
+        Track assignments and exams.
+      </p>
+
+      <div class="flex justify-between items-center mt-8 border-t pt-6">
+        <div>
+          <p class="text-gray-500 text-sm">70 Pages</p>
+          <h4 class="text-3xl font-black">Free</h4>
+        </div>
+
+        <button onclick="downloadPlanner('Study Planner')" class="bg-black text-white px-5 py-3 rounded-full font-bold hover:scale-105 transition">
+          Download
+        </button>
+      </div>
+    </div>
+
+    <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
+      <div class="flex justify-between items-center mb-5">
+        <span class="text-5xl">🔥</span>
+        <span class="bg-gray-100 px-3 py-1 rounded-full text-xs font-bold uppercase">
+          Planner
+        </span>
+      </div>
+
+      <h3 class="text-2xl font-black">Discipline Planner</h3>
+
+      <p class="text-gray-600 mt-4 leading-7">
+        Build habits and routines.
+      </p>
+
+      <div class="flex justify-between items-center mt-8 border-t pt-6">
+        <div>
+          <p class="text-gray-500 text-sm">55 Pages</p>
+          <h4 class="text-3xl font-black">Free</h4>
+        </div>
+
+        <button onclick="downloadPlanner('Discipline Planner')" class="bg-black text-white px-5 py-3 rounded-full font-bold hover:scale-105 transition">
+          Download
+        </button>
+      </div>
+    </div>
 
     </div>
+
   </div>
 </section>
 
@@ -212,7 +412,7 @@ html{
         Start Planning
       </button>
 
-      <button onclick="contactUs()" class="border-2 border-black px-8 py-4 rounded-full font-bold hover:bg-black hover:text-white transition">
+      <button onclick="contactUs()" class="border-2 border-black px-8 py-4 rounded-full font-bold">
         Contact Us
       </button>
     </div>
@@ -231,11 +431,15 @@ function scrollToProducts() {
 }
 
 function showDemo() {
-  alert('Demo feature coming soon!');
+  alert('Demo version coming soon!');
 }
 
 function contactUs() {
   window.location.href = 'mailto:hellomoneymaneja@gmail.com';
+}
+
+function downloadPlanner(name) {
+  alert(name + ' download will start soon!');
 }
 </script>
 
