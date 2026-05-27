@@ -35,11 +35,7 @@ const tagColors = {
   Premium:{ background:"#fff3e0", color:"#e65100" },
 };
 
-const testimonials = [
-  { name:"Sarah K.", role:"Freelancer", text:"The Side Hustle Planner helped me go from $500/month to $3,200/month in 90 days!" },
-  { name:"Raj M.", role:"Startup Founder", text:"I use the Startup Founder Planner every single week. It keeps me focused and on track." },
-  { name:"Amina T.", role:"Investor", text:"Finally a proper journal for tracking my trades. The Investor's Journal is a game changer." },
-];
+const testimonials = [];
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -175,17 +171,12 @@ function App() {
             </div>
           </section>
 
-          <section style={{background:"#fff",borderTop:"1px solid #ececec",padding:"60px 32px"}}>
-            <h2 style={{fontSize:24,fontWeight:900,textAlign:"center",marginBottom:40,letterSpacing:-1}}>What Customers Say</h2>
-            <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(280px,1fr))",gap:24,maxWidth:1000,margin:"0 auto"}}>
-              {testimonials.map((t,i)=>(
-                <div key={i} style={{background:"#fafafa",borderRadius:16,padding:24,border:"1px solid #ececec"}}>
-                  <div style={{fontSize:14,color:"#444",lineHeight:1.7,marginBottom:16}}>"{t.text}"</div>
-                  <div style={{fontWeight:700,fontSize:13}}>{t.name}</div>
-                  <div style={{fontSize:12,color:"#888"}}>{t.role}</div>
-                </div>
-              ))}
-            </div>
+          <section style={{background:"#f9f9f9",borderTop:"1px solid #ececec",padding:"48px 32px",textAlign:"center"}}>
+            <div style={{fontSize:36,marginBottom:16}}>⭐</div>
+            <h2 style={{fontSize:22,fontWeight:900,letterSpacing:-0.5,marginBottom:10}}>No Reviews Yet</h2>
+            <p style={{color:"#888",fontSize:14,maxWidth:420,margin:"0 auto",lineHeight:1.7}}>
+              Download our free planners and be the first to share your experience! Real reviews from real users will appear here.
+            </p>
           </section>
         </>
       )}
@@ -198,7 +189,7 @@ function App() {
           <p style={{color:"#555",lineHeight:1.8,fontSize:15}}>All planners are delivered instantly as PDF downloads. Print them, use them digitally — the choice is yours.</p>
           <div style={{marginTop:32,padding:24,background:"#f9f9f9",borderRadius:16}}>
             <div style={{fontWeight:700,marginBottom:8}}>Contact Us</div>
-            <div style={{color:"#888",fontSize:14}}>hello@moneymaneја.com</div>
+            <div style={{color:"#888",fontSize:14}}>hellomoneymaneja@gmail.com</div>
           </div>
         </section>
       )}
