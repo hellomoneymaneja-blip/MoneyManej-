@@ -3,328 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>MoneyManejā</title>
-
 <link rel="manifest" href="manifest.json">
-
-<meta name="theme-color" content="#000000">
-
 <script src="https://cdn.tailwindcss.com"></script>
-
-<style>
-html {
-scroll-behavior:smooth;
-}
-
-body {
-background:#f8fafc;
-}
-</style>
 </head>
-
-<body class="text-black">
-
-<header class="sticky top-0 z-50 border-b bg-white/90 backdrop-blur">
-<div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-
-<div>
-<h1 class="text-2xl md:text-3xl font-black">MoneyManejā</h1>
-<p class="text-xs uppercase tracking-[0.3em] text-gray-500">
-SMART DIGITAL PLANNERS
-</p>
-</div>
-
-<nav class="hidden md:flex gap-8 font-semibold">
-<a href="#products">Products</a>
-<a href="#features">Features</a>
-<a href="#about">About</a>
-</nav>
-
-<button onclick="scrollToProducts()" class="bg-black text-white px-6 py-3 rounded-full font-bold">
-Explore
-</button>
-
-</div>
-</header>
-
-<section class="bg-gradient-to-br from-gray-100 to-white border-b">
-<div class="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-center">
-
-<div>
-
-<div class="inline-block border rounded-full px-4 py-2 text-xs uppercase tracking-[0.2em] text-gray-600 mb-6">
-11 Premium Free Planners
-</div>
-
-<h1 class="text-5xl md:text-7xl font-black leading-tight">
-Plan Better.<br>Build Wealth.
-</h1>
-
-<p class="mt-6 text-lg text-gray-600 leading-8 max-w-xl">
-Premium planners for productivity, business, finance, fitness, discipline and life organization.
-</p>
-
-<div class="mt-8 flex flex-wrap gap-4">
-<button onclick="scrollToProducts()" class="bg-black text-white px-8 py-4 rounded-full font-bold">
-Explore Products
-</button>
-
-<button onclick="showDemo()" class="border-2 border-black px-8 py-4 rounded-full font-bold hover:bg-black hover:text-white transition">
-View Demo
-</button>
-</div>
-
-</div>
-
-<div class="bg-white rounded-[2rem] shadow-2xl p-8 border">
-
-<h2 class="text-3xl font-black mb-8">Monthly Overview</h2>
-
-<div class="space-y-5">
-
-<div class="bg-gray-100 rounded-2xl p-5">
-<div class="flex justify-between mb-3">
-<span>Income Goal</span>
-<span class="font-black">₹1,00,000</span>
-</div>
-
-<div class="h-3 bg-gray-300 rounded-full overflow-hidden">
-<div class="h-full w-3/4 bg-black"></div>
-</div>
-</div>
-
-<div class="grid grid-cols-2 gap-4">
-
-<div class="bg-gray-100 rounded-2xl p-5">
-<p class="text-gray-500 text-sm">Savings</p>
-<h3 class="text-3xl font-black mt-2">₹45k</h3>
-</div>
-
-<div class="bg-gray-100 rounded-2xl p-5">
-<p class="text-gray-500 text-sm">Expenses</p>
-<h3 class="text-3xl font-black mt-2">₹28k</h3>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-</section>
-
-<section id="features" class="max-w-7xl mx-auto px-6 py-24">
-
+<body class="bg-gray-50 text-black">
+<div class="max-w-7xl mx-auto px-6 py-16">
 <div class="text-center mb-16">
-<h2 class="text-4xl font-black">Why People Love MoneyManejā</h2>
-<p class="text-gray-600 mt-4">
-Modern planners built for ambitious people.
-</p>
+<h1 class="text-6xl font-black">MoneyManejā</h1>
+<p class="text-gray-600 mt-4 text-lg">Download premium planners instantly</p>
 </div>
 
-<div class="grid md:grid-cols-3 gap-6">
+<div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
 
-<div class="bg-white border rounded-3xl p-8">
-<div class="text-5xl mb-5">✨</div>
-<h3 class="text-2xl font-black">Minimal Design</h3>
-<p class="text-gray-600 mt-3">Beautiful clean layouts.</p>
-</div>
+<a href="Monthly_Budget_Planner.pdf" download class="bg-white border rounded-3xl p-8 block hover:shadow-2xl">
+<h2 class="text-3xl font-black">💰 Budget Planner</h2>
+<p class="mt-4 text-gray-600">Track income, expenses and savings.</p>
+<div class="mt-6 bg-black text-white px-5 py-3 rounded-full inline-block font-bold">Download PDF</div>
+</a>
 
-<div class="bg-white border rounded-3xl p-8">
-<div class="text-5xl mb-5">⚡</div>
-<h3 class="text-2xl font-black">Instant Access</h3>
-<p class="text-gray-600 mt-3">Download immediately.</p>
-</div>
+<a href="Investors_Journal.pdf" download class="bg-white border rounded-3xl p-8 block hover:shadow-2xl">
+<h2 class="text-3xl font-black">📈 Investor Journal</h2>
+<p class="mt-4 text-gray-600">Track investments and portfolio growth.</p>
+<div class="mt-6 bg-black text-white px-5 py-3 rounded-full inline-block font-bold">Download PDF</div>
+</a>
 
-<div class="bg-white border rounded-3xl p-8">
-<div class="text-5xl mb-5">📱</div>
-<h3 class="text-2xl font-black">Works Everywhere</h3>
-<p class="text-gray-600 mt-3">Mobile, tablet and desktop support.</p>
-</div>
+<a href="Startup_Founder_Planner.pdf" download class="bg-white border rounded-3xl p-8 block hover:shadow-2xl">
+<h2 class="text-3xl font-black">🚀 Startup Planner</h2>
+<p class="mt-4 text-gray-600">Plan your startup journey.</p>
+<div class="mt-6 bg-black text-white px-5 py-3 rounded-full inline-block font-bold">Download PDF</div>
+</a>
 
-</div>
-</section>
+<a href="Wealth_Building_Roadmap.pdf" download class="bg-white border rounded-3xl p-8 block hover:shadow-2xl">
+<h2 class="text-3xl font-black">🏦 Wealth Roadmap</h2>
+<p class="mt-4 text-gray-600">90-day wealth-building system.</p>
+<div class="mt-6 bg-black text-white px-5 py-3 rounded-full inline-block font-bold">Download PDF</div>
+</a>
 
-<section id="products" class="bg-gray-50 border-t px-6 py-24">
+<a href="Side_Hustle_Planner.pdf" download class="bg-white border rounded-3xl p-8 block hover:shadow-2xl">
+<h2 class="text-3xl font-black">💼 Side Hustle Planner</h2>
+<p class="mt-4 text-gray-600">Build your side business.</p>
+<div class="mt-6 bg-black text-white px-5 py-3 rounded-full inline-block font-bold">Download PDF</div>
+</a>
 
-<div class="max-w-7xl mx-auto">
+<a href="Relationship_Planner.pdf" download class="bg-white border rounded-3xl p-8 block hover:shadow-2xl">
+<h2 class="text-3xl font-black">❤️ Relationship Planner</h2>
+<p class="mt-4 text-gray-600">Strengthen relationships and memories.</p>
+<div class="mt-6 bg-black text-white px-5 py-3 rounded-full inline-block font-bold">Download PDF</div>
+</a>
 
-<div class="mb-16">
-<h2 class="text-4xl font-black">All 11 Planners</h2>
-<p class="text-gray-600 mt-3">
-Professional templates to improve your life.
-</p>
-</div>
-
-<div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
-
-    <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
-      <div class="text-5xl mb-5">📈</div>
-      <h3 class="text-2xl font-black">Business Planner</h3>
-      <p class="text-gray-600 mt-4">Business growth planner.</p>
-
-      <button onclick="downloadPlanner('Business Planner')" class="mt-8 bg-black text-white px-5 py-3 rounded-full font-bold hover:scale-105 transition">
-        Download
-      </button>
-    </div>
-
-    <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
-      <div class="text-5xl mb-5">💰</div>
-      <h3 class="text-2xl font-black">Budget Planner</h3>
-      <p class="text-gray-600 mt-4">Track savings and expenses.</p>
-
-      <button onclick="downloadPlanner('Budget Planner')" class="mt-8 bg-black text-white px-5 py-3 rounded-full font-bold hover:scale-105 transition">
-        Download
-      </button>
-    </div>
-
-    <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
-      <div class="text-5xl mb-5">📊</div>
-      <h3 class="text-2xl font-black">Investor Journal</h3>
-      <p class="text-gray-600 mt-4">Track investments and profits.</p>
-
-      <button onclick="downloadPlanner('Investor Journal')" class="mt-8 bg-black text-white px-5 py-3 rounded-full font-bold hover:scale-105 transition">
-        Download
-      </button>
-    </div>
-
-    <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
-      <div class="text-5xl mb-5">📚</div>
-      <h3 class="text-2xl font-black">Study Planner</h3>
-      <p class="text-gray-600 mt-4">Manage exams and assignments.</p>
-
-      <button onclick="downloadPlanner('Study Planner')" class="mt-8 bg-black text-white px-5 py-3 rounded-full font-bold hover:scale-105 transition">
-        Download
-      </button>
-    </div>
-
-    <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
-      <div class="text-5xl mb-5">🚀</div>
-      <h3 class="text-2xl font-black">Startup Planner</h3>
-      <p class="text-gray-600 mt-4">Launch and grow startups.</p>
-
-      <button onclick="downloadPlanner('Startup Planner')" class="mt-8 bg-black text-white px-5 py-3 rounded-full font-bold hover:scale-105 transition">
-        Download
-      </button>
-    </div>
-
-    <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
-      <div class="text-5xl mb-5">💪</div>
-      <h3 class="text-2xl font-black">Fitness Planner</h3>
-      <p class="text-gray-600 mt-4">Track workouts and health.</p>
-
-      <button onclick="downloadPlanner('Fitness Planner')" class="mt-8 bg-black text-white px-5 py-3 rounded-full font-bold hover:scale-105 transition">
-        Download
-      </button>
-    </div>
-
-    <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
-      <div class="text-5xl mb-5">🧠</div>
-      <h3 class="text-2xl font-black">Habit Planner</h3>
-      <p class="text-gray-600 mt-4">Build strong daily routines.</p>
-
-      <button onclick="downloadPlanner('Habit Planner')" class="mt-8 bg-black text-white px-5 py-3 rounded-full font-bold hover:scale-105 transition">
-        Download
-      </button>
-    </div>
-
-    <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
-      <div class="text-5xl mb-5">🏠</div>
-      <h3 class="text-2xl font-black">Family Planner</h3>
-      <p class="text-gray-600 mt-4">Organize family schedules.</p>
-
-      <button onclick="downloadPlanner('Family Planner')" class="mt-8 bg-black text-white px-5 py-3 rounded-full font-bold hover:scale-105 transition">
-        Download
-      </button>
-    </div>
-
-    <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
-      <div class="text-5xl mb-5">✈️</div>
-      <h3 class="text-2xl font-black">Travel Planner</h3>
-      <p class="text-gray-600 mt-4">Plan trips and budgets.</p>
-
-      <button onclick="downloadPlanner('Travel Planner')" class="mt-8 bg-black text-white px-5 py-3 rounded-full font-bold hover:scale-105 transition">
-        Download
-      </button>
-    </div>
-
-    <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
-      <div class="text-5xl mb-5">❤️</div>
-      <h3 class="text-2xl font-black">Relationship Planner</h3>
-      <p class="text-gray-600 mt-4">Strengthen relationships.</p>
-
-      <button onclick="downloadPlanner('Relationship Planner')" class="mt-8 bg-black text-white px-5 py-3 rounded-full font-bold hover:scale-105 transition">
-        Download
-      </button>
-    </div>
-
-    <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
-      <div class="text-5xl mb-5">🔥</div>
-      <h3 class="text-2xl font-black">Discipline Planner</h3>
-      <p class="text-gray-600 mt-4">Stay focused and productive.</p>
-
-      <button onclick="downloadPlanner('Discipline Planner')" class="mt-8 bg-black text-white px-5 py-3 rounded-full font-bold hover:scale-105 transition">
-        Download
-      </button>
-    </div>
+<a href="Gym_Planner.pdf" download class="bg-white border rounded-3xl p-8 block hover:shadow-2xl">
+<h2 class="text-3xl font-black">💪 Gym Planner</h2>
+<p class="mt-4 text-gray-600">Track workouts and nutrition.</p>
+<div class="mt-6 bg-black text-white px-5 py-3 rounded-full inline-block font-bold">Download PDF</div>
+</a>
 
 </div>
 
-</div>
-
-</section>
-
-<section id="about" class="max-w-4xl mx-auto px-6 py-24 text-center">
-
-<div class="bg-white border rounded-[2rem] p-12 shadow-sm">
-
-<h2 class="text-4xl font-black">Built for Ambitious People</h2>
-
-<p class="text-lg text-gray-600 leading-8 mt-6">
-MoneyManejā helps creators and entrepreneurs organize productivity, finance and goals.
-</p>
-
-<div class="mt-10 flex flex-wrap justify-center gap-4">
-
-<button onclick="scrollToProducts()" class="bg-black text-white px-8 py-4 rounded-full font-bold">
-Start Planning
-</button>
-
-<button onclick="contactUs()" class="border-2 border-black px-8 py-4 rounded-full font-bold hover:bg-black hover:text-white transition">
-Contact Us
-</button>
-
+<div class="mt-20 text-center">
+<a href="privacy.html" class="text-gray-500 underline">Privacy Policy</a>
 </div>
 
 </div>
-
-</section>
-
-<footer class="border-t py-10 text-center text-sm text-gray-500 bg-white">
-© 2026 MoneyManejā — Modern Digital Planner Store
-</footer>
-
-<script>
-function scrollToProducts(){
-document.getElementById('products').scrollIntoView({
-behavior:'smooth'
-});
-}
-
-function showDemo(){
-alert('Demo coming soon!');
-}
-
-function contactUs(){
-window.location.href='mailto:hellomoneymaneja@gmail.com';
-}
-
-function downloadPlanner(name){
-alert(name + ' download will be available soon!');
-}
-</script>
-
 </body>
 </html>
