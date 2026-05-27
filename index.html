@@ -15,17 +15,17 @@
 const { useState } = React;
 
 const products = [
-  { id:1, title:"Ultimate Business Planner", description:"12-month planner with goal tracking, revenue forecasting, and weekly sprints.", price:0, pages:"120 pages", tag:"Bestseller", emoji:"📈" },
-  { id:2, title:"Monthly Budget Planner", description:"Track income, expenses, savings goals and net worth every month.", price:0, pages:"60 pages", tag:"Popular", emoji:"💰" },
-  { id:3, title:"Investor's Journal", description:"Log trades, track portfolio performance and reflect on investment decisions.", price:0, pages:"80 pages", tag:"New", emoji:"📊" },
-  { id:4, title:"Startup Founder Planner", description:"From idea to launch — plan milestones, team tasks, and fundraising goals.", price:0, pages:"100 pages", tag:"Premium", emoji:"🚀" },
-  { id:5, title:"Wealth Building Roadmap", description:"A 90-day planner to build financial habits, reduce debt, and grow savings.", price:0, pages:"70 pages", tag:"", emoji:"🏦" },
-  { id:6, title:"Side Hustle Planner", description:"Plan, track and grow your side business alongside your full-time job.", price:0, pages:"55 pages", tag:"", emoji:"⚡" },
-  { id:7, title:"Gym Planner", description:"Track workouts, body measurements, nutrition and transform your body in 90 days.", price:0, pages:"50 pages", tag:"New", emoji:"💪" },
-  { id:8, title:"Relationship Planner", description:"Nurture your most important bonds with monthly check-ins, date planning and reflections.", price:0, pages:"60 pages", tag:"New", emoji:"❤️" },
-  { id:9, title:"Family Planner", description:"Organise family goals, monthly calendars, chores and activities all in one place.", price:0, pages:"65 pages", tag:"New", emoji:"👨‍👩‍👧‍👦" },
-  { id:10, title:"Study Planner — School & College", description:"Timetables, exam trackers, assignment logs and weekly goals for serious students.", price:0, pages:"70 pages", tag:"New", emoji:"📚" },
-  { id:11, title:"Discipline Planner", description:"Build powerful habits with 90-day trackers, daily routines and weekly reflections.", price:0, pages:"55 pages", tag:"New", emoji:"🔥" },
+  { id:1, title:"Ultimate Business Planner", description:"12-month planner with goal tracking, revenue forecasting, and weekly sprints.", price:0, pages:"120 pages", tag:"Bestseller", emoji:"📈", link:"https://drive.google.com/file/d/1NAoZlDPvt-7A46u6zPiH_VmkzdDcHX_Y/view?usp=drivesdk" },
+  { id:2, title:"Monthly Budget Planner", description:"Track income, expenses, savings goals and net worth every month.", price:0, pages:"60 pages", tag:"Popular", emoji:"💰", link:"https://drive.google.com/file/d/1biQORYskAE69hIGWOtSr_Psej43b3zPu/view?usp=drivesdk" },
+  { id:3, title:"Investor's Journal", description:"Log trades, track portfolio performance and reflect on investment decisions.", price:0, pages:"80 pages", tag:"New", emoji:"📊", link:"https://drive.google.com/file/d/1qqB8YWUObDMEJZ_n-M9bXmWl6fuwJAK_/view?usp=drivesdk" },
+  { id:4, title:"Startup Founder Planner", description:"From idea to launch — plan milestones, team tasks, and fundraising goals.", price:0, pages:"100 pages", tag:"Premium", emoji:"🚀", link:"https://drive.google.com/file/d/1CexqqSy2KBktHiINo3Mz5r5d950d3lBc/view?usp=drivesdk" },
+  { id:5, title:"Wealth Building Roadmap", description:"A 90-day planner to build financial habits, reduce debt, and grow savings.", price:0, pages:"70 pages", tag:"", emoji:"🏦", link:"https://drive.google.com/file/d/1z4TDSuKHjL9wBb2Fs2YoUE-Rc3cJjDVt/view?usp=drivesdk" },
+  { id:6, title:"Side Hustle Planner", description:"Plan, track and grow your side business alongside your full-time job.", price:0, pages:"55 pages", tag:"", emoji:"⚡", link:"https://drive.google.com/file/d/1TfVkJKunHIqxrW0yS3SbFdfIbj0XZVVr/view?usp=drivesdk" },
+  { id:7, title:"Gym Planner", description:"Track workouts, body measurements, nutrition and transform your body in 90 days.", price:0, pages:"50 pages", tag:"New", emoji:"💪", link:"https://drive.google.com/file/d/1Wp-PE5eFrOGj7-Cyvs30hrVDP6V42RXn/view?usp=drivesdk" },
+  { id:8, title:"Relationship Planner", description:"Nurture your most important bonds with monthly check-ins, date planning and reflections.", price:0, pages:"60 pages", tag:"New", emoji:"❤️", link:"https://drive.google.com/file/d/1k7-pFXPempXOId-XaDqIHy1gPoOiEqvE/view?usp=drivesdk" },
+  { id:9, title:"Family Planner", description:"Organise family goals, monthly calendars, chores and activities all in one place.", price:0, pages:"65 pages", tag:"New", emoji:"👨‍👩‍👧‍👦", link:"https://drive.google.com/file/d/16ekYuirugJedtkVyU7cijQIKZj4O9gf9/view?usp=drivesdk" },
+  { id:10, title:"Study Planner — School & College", description:"Timetables, exam trackers, assignment logs and weekly goals for serious students.", price:0, pages:"70 pages", tag:"New", emoji:"📚", link:"https://drive.google.com/file/d/1-nQlnF0cxhKEB6fr8fDgEe6p3RIK3oUx/view?usp=drivesdk" },
+  { id:11, title:"Discipline Planner", description:"Build powerful habits with 90-day trackers, daily routines and weekly reflections.", price:0, pages:"55 pages", tag:"New", emoji:"🔥", link:"https://drive.google.com/file/d/1FKRQtoPiLcxeyg3iOxst1nx5iXQTr31O/view?usp=drivesdk" },
 ];
 
 const tagColors = {
@@ -162,8 +162,8 @@ function App() {
                   </div>
                   <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:"auto",paddingTop:16,borderTop:"1px solid #f5f5f5"}}>
                     <span style={{fontSize:24,fontWeight:900}}>${product.price}</span>
-                    <button onClick={()=>addToCart(product)} style={{background:inCart(product.id)?"#f0f0f0":"#111",color:inCart(product.id)?"#888":"#fff",border:"none",borderRadius:40,padding:"10px 20px",fontSize:13,fontWeight:700,cursor:"pointer"}}>
-                      {inCart(product.id)?"✓ Added":(product.price===0?"Download Free":"Add to Cart")}
+                    <button onClick={()=>product.link ? window.open(product.link,'_blank') : addToCart(product)} style={{background:"#111",color:"#fff",border:"none",borderRadius:40,padding:"10px 20px",fontSize:13,fontWeight:700,cursor:"pointer",display:"flex",alignItems:"center",gap:6}}>
+                      Download Free
                     </button>
                   </div>
                 </div>
