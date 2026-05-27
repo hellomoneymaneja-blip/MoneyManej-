@@ -1,207 +1,280 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>MoneyManejā — Digital Planners</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
-<style>* { box-sizing: border-box; margin: 0; padding: 0; } html { scroll-behavior: smooth; } body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #fafafa; color: #111; }</style>
-</head>
-<body>
-<div id="root"></div>
-<script type="text/babel">
-const { useState } = React;
-
-const products = [
-  { id:1, title:"Ultimate Business Planner", description:"12-month planner with goal tracking, revenue forecasting, and weekly sprints.", price:0, pages:"120 pages", tag:"Bestseller", emoji:"📈", link:"https://drive.google.com/file/d/1NAoZlDPvt-7A46u6zPiH_VmkzdDcHX_Y/view?usp=drivesdk" },
-  { id:2, title:"Monthly Budget Planner", description:"Track income, expenses, savings goals and net worth every month.", price:0, pages:"60 pages", tag:"Popular", emoji:"💰", link:"https://drive.google.com/file/d/1biQORYskAE69hIGWOtSr_Psej43b3zPu/view?usp=drivesdk" },
-  { id:3, title:"Investor's Journal", description:"Log trades, track portfolio performance and reflect on investment decisions.", price:0, pages:"80 pages", tag:"New", emoji:"📊", link:"https://drive.google.com/file/d/1qqB8YWUObDMEJZ_n-M9bXmWl6fuwJAK_/view?usp=drivesdk" },
-  { id:4, title:"Startup Founder Planner", description:"From idea to launch — plan milestones, team tasks, and fundraising goals.", price:0, pages:"100 pages", tag:"Premium", emoji:"🚀", link:"https://drive.google.com/file/d/1CexqqSy2KBktHiINo3Mz5r5d950d3lBc/view?usp=drivesdk" },
-  { id:5, title:"Wealth Building Roadmap", description:"A 90-day planner to build financial habits, reduce debt, and grow savings.", price:0, pages:"70 pages", tag:"", emoji:"🏦", link:"https://drive.google.com/file/d/1z4TDSuKHjL9wBb2Fs2YoUE-Rc3cJjDVt/view?usp=drivesdk" },
-  { id:6, title:"Side Hustle Planner", description:"Plan, track and grow your side business alongside your full-time job.", price:0, pages:"55 pages", tag:"", emoji:"⚡", link:"https://drive.google.com/file/d/1TfVkJKunHIqxrW0yS3SbFdfIbj0XZVVr/view?usp=drivesdk" },
-  { id:7, title:"Gym Planner", description:"Track workouts, body measurements, nutrition and transform your body in 90 days.", price:0, pages:"50 pages", tag:"New", emoji:"💪", link:"https://drive.google.com/file/d/1Wp-PE5eFrOGj7-Cyvs30hrVDP6V42RXn/view?usp=drivesdk" },
-  { id:8, title:"Relationship Planner", description:"Nurture your most important bonds with monthly check-ins, date planning and reflections.", price:0, pages:"60 pages", tag:"New", emoji:"❤️", link:"https://drive.google.com/file/d/1k7-pFXPempXOId-XaDqIHy1gPoOiEqvE/view?usp=drivesdk" },
-  { id:9, title:"Family Planner", description:"Organise family goals, monthly calendars, chores and activities all in one place.", price:0, pages:"65 pages", tag:"New", emoji:"👨‍👩‍👧‍👦", link:"https://drive.google.com/file/d/16ekYuirugJedtkVyU7cijQIKZj4O9gf9/view?usp=drivesdk" },
-  { id:10, title:"Study Planner — School & College", description:"Timetables, exam trackers, assignment logs and weekly goals for serious students.", price:0, pages:"70 pages", tag:"New", emoji:"📚", link:"https://drive.google.com/file/d/1-nQlnF0cxhKEB6fr8fDgEe6p3RIK3oUx/view?usp=drivesdk" },
-  { id:11, title:"Discipline Planner", description:"Build powerful habits with 90-day trackers, daily routines and weekly reflections.", price:0, pages:"55 pages", tag:"New", emoji:"🔥", link:"https://drive.google.com/file/d/1FKRQtoPiLcxeyg3iOxst1nx5iXQTr31O/view?usp=drivesdk" },
-];
-
-const tagColors = {
-  Bestseller:{ background:"#000", color:"#fff" },
-  Popular:{ background:"#f0f0f0", color:"#333" },
-  New:{ background:"#e8f5e9", color:"#2e7d32" },
-  Premium:{ background:"#fff3e0", color:"#e65100" },
-};
-
-const testimonials = [];
-
-function App() {
-  const [cart, setCart] = useState([]);
-  const [toast, setToast] = useState(null);
-  const [cartOpen, setCartOpen] = useState(false);
-  const [checkoutDone, setCheckoutDone] = useState(false);
-  const [email, setEmail] = useState("");
-  const [activeTab, setActiveTab] = useState("store");
-
-  const addToCart = (p) => {
-    setCart(prev => prev.find(i => i.id === p.id) ? prev : [...prev, p]);
-    setToast(`"${p.title}" added!`);
-    setTimeout(() => setToast(null), 2500);
-  };
-  const removeFromCart = (id) => setCart(prev => prev.filter(i => i.id !== id));
-  const total = cart.reduce((s, i) => s + i.price, 0);
-  const inCart = (id) => !!cart.find(i => i.id === id);
-
-  return (
-    <div style={{minHeight:"100vh"}}>
-
-      {toast && <div style={{position:"fixed",bottom:24,left:"50%",transform:"translateX(-50%)",background:"#111",color:"#fff",padding:"12px 24px",borderRadius:40,fontSize:13,zIndex:999,boxShadow:"0 4px 20px rgba(0,0,0,0.15)"}}>✓ {toast}</div>}
-
-      {cartOpen && (
-        <div style={{position:"fixed",inset:0,zIndex:900}}>
-          <div onClick={()=>setCartOpen(false)} style={{position:"absolute",inset:0,background:"rgba(0,0,0,0.4)"}}/>
-          <div style={{position:"absolute",top:0,right:0,width:340,height:"100vh",background:"#fff",boxShadow:"-4px 0 30px rgba(0,0,0,0.1)",display:"flex",flexDirection:"column",padding:28}}>
-            <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:24}}>
-              <span style={{fontSize:18,fontWeight:800}}>Cart ({cart.length})</span>
-              <button onClick={()=>setCartOpen(false)} style={{background:"none",border:"none",fontSize:22,cursor:"pointer"}}>✕</button>
-            </div>
-            {cart.length===0 ? <p style={{color:"#999",textAlign:"center",marginTop:60}}>Your cart is empty.</p> : (
-              <>
-                <div style={{flex:1,overflowY:"auto"}}>
-                  {cart.map(item=>(
-                    <div key={item.id} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"14px 0",borderBottom:"1px solid #f0f0f0"}}>
-                      <div>
-                        <div style={{fontSize:14,fontWeight:600}}>{item.emoji} {item.title}</div>
-                        <div style={{fontSize:12,color:"#888",marginTop:2}}>{item.pages} · PDF</div>
-                      </div>
-                      <div style={{display:"flex",alignItems:"center",gap:10}}>
-                        <span style={{fontWeight:800}}>${item.price}</span>
-                        <button onClick={()=>removeFromCart(item.id)} style={{background:"#f5f5f5",border:"none",borderRadius:"50%",width:26,height:26,cursor:"pointer",fontSize:12}}>✕</button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div style={{borderTop:"2px solid #111",paddingTop:20}}>
-                  {!checkoutDone ? (
-                    <>
-                      <input placeholder="Your email for delivery" value={email} onChange={e=>setEmail(e.target.value)} style={{width:"100%",padding:"10px 14px",borderRadius:8,border:"1px solid #ddd",fontSize:13,marginBottom:12}}/>
-                      <div style={{display:"flex",justifyContent:"space-between",marginBottom:14}}>
-                        <span style={{fontWeight:600}}>Total</span>
-                        <span style={{fontSize:20,fontWeight:900}}>${total}</span>
-                      </div>
-                      <button onClick={()=>email&&setCheckoutDone(true)} style={{width:"100%",background:email?"#111":"#ccc",color:"#fff",border:"none",padding:14,borderRadius:10,fontSize:14,fontWeight:700,cursor:email?"pointer":"not-allowed"}}>
-                        Complete Purchase — ${total}
-                      </button>
-                    </>
-                  ) : (
-                    <div style={{background:"#e8f5e9",color:"#2e7d32",padding:16,borderRadius:10,textAlign:"center"}}>
-                      <div style={{fontSize:24,marginBottom:8}}>🎉</div>
-                      <div style={{fontWeight:700,marginBottom:4}}>Order Confirmed!</div>
-                      <div style={{fontSize:12}}>Download links sent to {email}</div>
-                    </div>
-                  )}
-                </div>
-              </>
-            )}
-          </div>
-        </div>
-      )}
-
-      <header style={{background:"#fff",borderBottom:"1px solid #ececec",padding:"16px 32px",display:"flex",justifyContent:"space-between",alignItems:"center",position:"sticky",top:0,zIndex:800}}>
-        <div>
-          <div style={{fontSize:20,fontWeight:900,letterSpacing:-0.8}}>MoneyManejā</div>
-          <div style={{fontSize:10,color:"#999",letterSpacing:1.5,textTransform:"uppercase"}}>Your Smart Money Manager</div>
-        </div>
-        <nav style={{display:"flex",gap:24,alignItems:"center"}}>
-          {["store","about"].map(tab=>(
-            <button key={tab} onClick={()=>setActiveTab(tab)} style={{background:"none",border:"none",fontSize:13,fontWeight:activeTab===tab?700:400,color:activeTab===tab?"#111":"#888",cursor:"pointer",textTransform:"capitalize"}}>{tab}</button>
-          ))}
-          <button onClick={()=>setCartOpen(true)} style={{background:"#111",color:"#fff",border:"none",borderRadius:40,padding:"10px 20px",fontSize:13,cursor:"pointer",fontWeight:600,display:"flex",alignItems:"center",gap:8}}>
-            🛒 Cart {cart.length>0&&<span style={{background:"#fff",color:"#111",borderRadius:"50%",width:20,height:20,display:"inline-flex",alignItems:"center",justifyContent:"center",fontSize:11,fontWeight:800}}>{cart.length}</span>}
-          </button>
-        </nav>
-      </header>
-
-      {activeTab==="store" && (
-        <>
-          <section style={{padding:"72px 32px 56px",textAlign:"center",borderBottom:"1px solid #ececec",background:"#fff"}}>
-            <div style={{display:"inline-block",background:"#f5f5f5",borderRadius:40,padding:"6px 16px",fontSize:10,letterSpacing:2,textTransform:"uppercase",color:"#666",marginBottom:20}}>Instant PDF Download</div>
-            <h1 style={{fontSize:"clamp(30px,5vw,52px)",fontWeight:900,letterSpacing:-2,lineHeight:1.1,margin:"0 0 18px"}}>Plan Smarter.<br/>Earn More.</h1>
-            <p style={{color:"#666",fontSize:16,maxWidth:480,margin:"0 auto 32px",lineHeight:1.7}}>Premium digital planners for entrepreneurs, investors, and wealth builders. Download instantly and start today.</p>
-            <div style={{display:"flex",gap:12,justifyContent:"center",flexWrap:"wrap"}}>
-              <button onClick={()=>document.getElementById("products").scrollIntoView({behavior:"smooth"})} style={{background:"#111",color:"#fff",padding:"14px 32px",borderRadius:40,border:"none",fontSize:14,fontWeight:700,cursor:"pointer"}}>Browse Planners ↓</button>
-              <button onClick={()=>products.forEach(p=>addToCart(p))} style={{background:"#fff",color:"#111",padding:"14px 32px",borderRadius:40,border:"2px solid #111",fontSize:14,fontWeight:700,cursor:"pointer"}}>Download All 11 Free</button>
-            </div>
-          </section>
-
-          <div style={{display:"flex",justifyContent:"center",gap:40,padding:"18px 32px",background:"#f9f9f9",borderBottom:"1px solid #ececec",flexWrap:"wrap"}}>
-            {["⚡ Instant Download","💳 Secure Checkout","🔄 Lifetime Access","📱 All Devices","⭐ 11 Free Planners"].map(item=>(
-              <span key={item} style={{fontSize:12,color:"#555",fontWeight:500}}>{item}</span>
-            ))}
-          </div>
-
-          <section id="products" style={{padding:"60px 32px",maxWidth:1100,margin:"0 auto"}}>
-            <h2 style={{fontSize:28,fontWeight:900,letterSpacing:-1,marginBottom:6}}>All Planners</h2>
-            <p style={{color:"#888",fontSize:14,marginBottom:40}}>Download instantly. Start planning today.</p>
-            <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(300px,1fr))",gap:24}}>
-              {products.map(product=>(
-                <div key={product.id} style={{background:"#fff",border:"1px solid #ececec",borderRadius:16,padding:"28px 24px",display:"flex",flexDirection:"column",gap:12}}>
-                  <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
-                    <span style={{fontSize:36}}>{product.emoji}</span>
-                    {product.tag&&<span style={{...tagColors[product.tag],padding:"4px 12px",borderRadius:40,fontSize:10,fontWeight:700,letterSpacing:0.8,textTransform:"uppercase"}}>{product.tag}</span>}
-                  </div>
-                  <div>
-                    <h3 style={{fontSize:16,fontWeight:800,margin:"0 0 6px"}}>{product.title}</h3>
-                    <p style={{fontSize:13,color:"#777",lineHeight:1.6,margin:0}}>{product.description}</p>
-                  </div>
-                  <div style={{display:"flex",gap:8}}>
-                    <span style={{fontSize:11,color:"#aaa",background:"#f5f5f5",padding:"3px 10px",borderRadius:40}}>📄 {product.pages}</span>
-                    <span style={{fontSize:11,color:"#aaa",background:"#f5f5f5",padding:"3px 10px",borderRadius:40}}>PDF</span>
-                  </div>
-                  <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:"auto",paddingTop:16,borderTop:"1px solid #f5f5f5"}}>
-                    <span style={{fontSize:24,fontWeight:900}}>${product.price}</span>
-                    <button onClick={()=>product.link ? window.open(product.link,'_blank') : addToCart(product)} style={{background:"#111",color:"#fff",border:"none",borderRadius:40,padding:"10px 20px",fontSize:13,fontWeight:700,cursor:"pointer",display:"flex",alignItems:"center",gap:6}}>
-                      Download Free
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section style={{background:"#f9f9f9",borderTop:"1px solid #ececec",padding:"48px 32px",textAlign:"center"}}>
-            <div style={{fontSize:36,marginBottom:16}}>⭐</div>
-            <h2 style={{fontSize:22,fontWeight:900,letterSpacing:-0.5,marginBottom:10}}>No Reviews Yet</h2>
-            <p style={{color:"#888",fontSize:14,maxWidth:420,margin:"0 auto",lineHeight:1.7}}>
-              Download our free planners and be the first to share your experience! Real reviews from real users will appear here.
-            </p>
-          </section>
-        </>
-      )}
-
-      {activeTab==="about" && (
-        <section style={{maxWidth:680,margin:"60px auto",padding:"0 32px"}}>
-          <h2 style={{fontSize:32,fontWeight:900,letterSpacing:-1,marginBottom:16}}>About MoneyManejā</h2>
-          <p style={{color:"#555",lineHeight:1.8,fontSize:15,marginBottom:16}}>MoneyManejā was created for people who are serious about building wealth and growing their business — one planned day at a time.</p>
-          <p style={{color:"#555",lineHeight:1.8,fontSize:15,marginBottom:16}}>Our digital planners are crafted by business coaches and financial experts. Every page is designed to keep you focused, accountable, and moving forward.</p>
-          <p style={{color:"#555",lineHeight:1.8,fontSize:15}}>All planners are delivered instantly as PDF downloads. Print them, use them digitally — the choice is yours.</p>
-          <div style={{marginTop:32,padding:24,background:"#f9f9f9",borderRadius:16}}>
-            <div style={{fontWeight:700,marginBottom:8}}>Contact Us</div>
-            <div style={{color:"#888",fontSize:14}}>hellomoneymaneja@gmail.com</div>
-          </div>
-        </section>
-      )}
-
-      <footer style={{borderTop:"1px solid #ececec",padding:32,textAlign:"center",color:"#bbb",fontSize:12,background:"#fff"}}>
-        © 2026 MoneyManejā · All digital products for personal use · Instant delivery after purchase
-      </footer>
-    </div>
-  );
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MoneyManejā</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body{
+  background:#f8fafc;
 }
+</style>
+</head>
+<body class="text-black">
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
-</script>
+<header class="sticky top-0 z-50 border-b bg-white/90 backdrop-blur">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div>
+      <h1 class="text-2xl font-black">MoneyManejā</h1>
+      <p class="text-xs tracking-[0.3em] uppercase text-gray-500">Smart Digital Planners</p>
+    </div>
+
+    <div class="hidden md:flex gap-8 text-sm font-semibold">
+      <a href="#products">Products</a>
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+    </div>
+
+    <button class="bg-black text-white px-5 py-2 rounded-full font-semibold">
+      Download Free
+    </button>
+  </div>
+</header>
+
+<section class="bg-gradient-to-br from-gray-100 to-white border-b">
+  <div class="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-center">
+
+    <div>
+      <div class="inline-block border rounded-full px-4 py-2 text-xs uppercase tracking-[0.2em] text-gray-600 mb-6">
+        11 Premium Free Planners
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-black leading-tight tracking-tight">
+        Plan Better.<br/>
+        Build Wealth.
+      </h1>
+
+      <p class="mt-6 text-lg text-gray-600 leading-8 max-w-xl">
+        Premium digital planners for entrepreneurs, students, investors, and ambitious creators.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-4">
+        <button class="bg-black text-white px-8 py-4 rounded-full font-bold hover:scale-105 transition">
+          Explore Products
+        </button>
+
+        <button class="border-2 border-black px-8 py-4 rounded-full font-bold hover:bg-black hover:text-white transition">
+          View Demo
+        </button>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-[2rem] shadow-2xl p-8 border">
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <h2 class="text-2xl font-black">Monthly Budget</h2>
+          <p class="text-gray-500">Financial Overview</p>
+        </div>
+
+        <div class="bg-black text-white px-4 py-2 rounded-xl font-bold">
+          Premium
+        </div>
+      </div>
+
+      <div class="space-y-5">
+        <div class="bg-gray-100 rounded-2xl p-5">
+          <div class="flex justify-between mb-3">
+            <span>Income Goal</span>
+            <span class="font-black">₹1,00,000</span>
+          </div>
+
+          <div class="h-3 bg-gray-300 rounded-full overflow-hidden">
+            <div class="h-full w-3/4 bg-black"></div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-gray-100 rounded-2xl p-5">
+            <p class="text-gray-500 text-sm">Savings</p>
+            <h3 class="text-3xl font-black mt-2">₹45k</h3>
+          </div>
+
+          <div class="bg-gray-100 rounded-2xl p-5">
+            <p class="text-gray-500 text-sm">Expenses</p>
+            <h3 class="text-3xl font-black mt-2">₹28k</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="features" class="max-w-7xl mx-auto px-6 py-24">
+  <div class="text-center mb-16">
+    <h2 class="text-4xl font-black">Why People Love MoneyManejā</h2>
+    <p class="text-gray-600 mt-4">Modern planners built for productivity and growth.</p>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-6">
+
+    <div class="bg-white border rounded-3xl p-8 hover:shadow-2xl transition">
+      <div class="text-5xl mb-5">✨</div>
+      <h3 class="text-2xl font-black">Minimal Design</h3>
+      <p class="text-gray-600 mt-3 leading-7">Clean layouts with zero distractions.</p>
+    </div>
+
+    <div class="bg-white border rounded-3xl p-8 hover:shadow-2xl transition">
+      <div class="text-5xl mb-5">⚡</div>
+      <h3 class="text-2xl font-black">Instant Access</h3>
+      <p class="text-gray-600 mt-3 leading-7">Download immediately after purchase.</p>
+    </div>
+
+    <div class="bg-white border rounded-3xl p-8 hover:shadow-2xl transition">
+      <div class="text-5xl mb-5">📱</div>
+      <h3 class="text-2xl font-black">Works Everywhere</h3>
+      <p class="text-gray-600 mt-3 leading-7">Use on iPad, Android, desktop, or print it.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="products" class="bg-gray-50 border-t px-6 py-24">
+  <div class="max-w-7xl mx-auto">
+
+    <div class="flex flex-col md:flex-row justify-between md:items-end gap-6 mb-16">
+      <div>
+        <h2 class="text-4xl font-black">Explore Planners</h2>
+        <p class="text-gray-600 mt-3">Professional templates to improve your life.</p>
+      </div>
+
+      <button class="bg-black text-white px-6 py-3 rounded-full font-bold">
+        View All Products
+      </button>
+    </div>
+
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+
+      <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
+        <div class="flex justify-between items-center mb-5">
+          <span class="text-5xl">📈</span>
+          <span class="bg-gray-100 px-3 py-1 rounded-full text-xs font-bold uppercase">
+            Business
+          </span>
+        </div>
+
+        <h3 class="text-2xl font-black">Ultimate Business Planner</h3>
+        <p class="text-gray-600 mt-4 leading-7">
+          Revenue forecasting, weekly goals, and productivity planning.
+        </p>
+
+        <div class="flex justify-between items-center mt-8 border-t pt-6">
+          <div>
+            <p class="text-gray-500 text-sm">120 Pages</p>
+            <h4 class="text-3xl font-black">Free</h4>
+          </div>
+
+          <button class="bg-black text-white px-5 py-3 rounded-full font-bold">
+            Download
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
+        <div class="flex justify-between items-center mb-5">
+          <span class="text-5xl">💰</span>
+          <span class="bg-gray-100 px-3 py-1 rounded-full text-xs font-bold uppercase">
+            Finance
+          </span>
+        </div>
+
+        <h3 class="text-2xl font-black">Monthly Budget Planner</h3>
+        <p class="text-gray-600 mt-4 leading-7">
+          Track expenses, savings goals, and financial habits.
+        </p>
+
+        <div class="flex justify-between items-center mt-8 border-t pt-6">
+          <div>
+            <p class="text-gray-500 text-sm">60 Pages</p>
+            <h4 class="text-3xl font-black">Free</h4>
+          </div>
+
+          <button class="bg-black text-white px-5 py-3 rounded-full font-bold">
+            Download
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
+        <div class="flex justify-between items-center mb-5">
+          <span class="text-5xl">💪</span>
+          <span class="bg-gray-100 px-3 py-1 rounded-full text-xs font-bold uppercase">
+            Fitness
+          </span>
+        </div>
+
+        <h3 class="text-2xl font-black">Gym Planner</h3>
+        <p class="text-gray-600 mt-4 leading-7">
+          Build workout discipline and track body progress.
+        </p>
+
+        <div class="flex justify-between items-center mt-8 border-t pt-6">
+          <div>
+            <p class="text-gray-500 text-sm">50 Pages</p>
+            <h4 class="text-3xl font-black">Free</h4>
+          </div>
+
+          <button class="bg-black text-white px-5 py-3 rounded-full font-bold">
+            Download
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
+        <div class="flex justify-between items-center mb-5">
+          <span class="text-5xl">📚</span>
+          <span class="bg-gray-100 px-3 py-1 rounded-full text-xs font-bold uppercase">
+            Study
+          </span>
+        </div>
+
+        <h3 class="text-2xl font-black">Study Planner</h3>
+        <p class="text-gray-600 mt-4 leading-7">
+          Timetables, exams, focus sessions, and assignment tracking.
+        </p>
+
+        <div class="flex justify-between items-center mt-8 border-t pt-6">
+          <div>
+            <p class="text-gray-500 text-sm">70 Pages</p>
+            <h4 class="text-3xl font-black">Free</h4>
+          </div>
+
+          <button class="bg-black text-white px-5 py-3 rounded-full font-bold">
+            Download
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="about" class="max-w-4xl mx-auto px-6 py-24 text-center">
+  <div class="bg-white border rounded-[2rem] p-12 shadow-sm">
+    <h2 class="text-4xl font-black">Built for Ambitious People</h2>
+
+    <p class="text-lg text-gray-600 leading-8 mt-6 max-w-2xl mx-auto">
+      MoneyManejā helps creators, students, entrepreneurs, and professionals
+      organize their goals, money, productivity, and growth.
+    </p>
+
+    <div class="mt-10 flex flex-wrap justify-center gap-4">
+      <button class="bg-black text-white px-8 py-4 rounded-full font-bold">
+        Start Planning
+      </button>
+
+      <button class="border-2 border-black px-8 py-4 rounded-full font-bold hover:bg-black hover:text-white transition">
+        Contact Us
+      </button>
+    </div>
+  </div>
+</section>
+
+<footer class="border-t py-10 text-center text-sm text-gray-500 bg-white">
+  © 2026 MoneyManejā — Modern Digital Planner Store
+</footer>
+
 </body>
 </html>
