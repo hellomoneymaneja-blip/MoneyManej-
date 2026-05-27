@@ -2,32 +2,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MoneyManejā</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-body{
-  background:#f8fafc;
+html{
+  scroll-behavior:smooth;
 }
 </style>
 </head>
-<body class="text-black">
+
+<body class="bg-slate-50 text-black">
 
 <header class="sticky top-0 z-50 border-b bg-white/90 backdrop-blur">
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     <div>
       <h1 class="text-2xl font-black">MoneyManejā</h1>
-      <p class="text-xs tracking-[0.3em] uppercase text-gray-500">Smart Digital Planners</p>
+      <p class="text-xs uppercase tracking-[0.3em] text-gray-500">
+        Smart Digital Planners
+      </p>
     </div>
 
-    <div class="hidden md:flex gap-8 text-sm font-semibold">
-      <a href="#products">Products</a>
-      <a href="#features">Features</a>
-      <a href="#about">About</a>
-    </div>
+    <nav class="hidden md:flex gap-8 text-sm font-semibold">
+      <a href="#products" class="hover:text-gray-500">Products</a>
+      <a href="#features" class="hover:text-gray-500">Features</a>
+      <a href="#about" class="hover:text-gray-500">About</a>
+    </nav>
 
-    <button class="bg-black text-white px-5 py-2 rounded-full font-semibold">
+    <button onclick="scrollToProducts()" class="bg-black text-white px-5 py-2 rounded-full font-semibold hover:scale-105 transition">
       Download Free
     </button>
   </div>
@@ -42,8 +45,7 @@ body{
       </div>
 
       <h1 class="text-5xl md:text-7xl font-black leading-tight tracking-tight">
-        Plan Better.<br/>
-        Build Wealth.
+        Plan Better.<br>Build Wealth.
       </h1>
 
       <p class="mt-6 text-lg text-gray-600 leading-8 max-w-xl">
@@ -51,11 +53,11 @@ body{
       </p>
 
       <div class="mt-8 flex flex-wrap gap-4">
-        <button class="bg-black text-white px-8 py-4 rounded-full font-bold hover:scale-105 transition">
+        <button onclick="scrollToProducts()" class="bg-black text-white px-8 py-4 rounded-full font-bold hover:scale-105 transition">
           Explore Products
         </button>
 
-        <button class="border-2 border-black px-8 py-4 rounded-full font-bold hover:bg-black hover:text-white transition">
+        <button onclick="showDemo()" class="border-2 border-black px-8 py-4 rounded-full font-bold hover:bg-black hover:text-white transition">
           View Demo
         </button>
       </div>
@@ -139,10 +141,6 @@ body{
         <h2 class="text-4xl font-black">Explore Planners</h2>
         <p class="text-gray-600 mt-3">Professional templates to improve your life.</p>
       </div>
-
-      <button class="bg-black text-white px-6 py-3 rounded-full font-bold">
-        View All Products
-      </button>
     </div>
 
     <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
@@ -155,9 +153,9 @@ body{
           </span>
         </div>
 
-        <h3 class="text-2xl font-black">Ultimate Business Planner</h3>
+        <h3 class="text-2xl font-black">Business Planner</h3>
         <p class="text-gray-600 mt-4 leading-7">
-          Revenue forecasting, weekly goals, and productivity planning.
+          Revenue forecasting and weekly planning.
         </p>
 
         <div class="flex justify-between items-center mt-8 border-t pt-6">
@@ -166,9 +164,9 @@ body{
             <h4 class="text-3xl font-black">Free</h4>
           </div>
 
-          <button class="bg-black text-white px-5 py-3 rounded-full font-bold">
+          <a href="https://drive.google.com" target="_blank" class="bg-black text-white px-5 py-3 rounded-full font-bold">
             Download
-          </button>
+          </a>
         </div>
       </div>
 
@@ -180,9 +178,9 @@ body{
           </span>
         </div>
 
-        <h3 class="text-2xl font-black">Monthly Budget Planner</h3>
+        <h3 class="text-2xl font-black">Budget Planner</h3>
         <p class="text-gray-600 mt-4 leading-7">
-          Track expenses, savings goals, and financial habits.
+          Track expenses and build savings habits.
         </p>
 
         <div class="flex justify-between items-center mt-8 border-t pt-6">
@@ -191,59 +189,9 @@ body{
             <h4 class="text-3xl font-black">Free</h4>
           </div>
 
-          <button class="bg-black text-white px-5 py-3 rounded-full font-bold">
+          <a href="https://drive.google.com" target="_blank" class="bg-black text-white px-5 py-3 rounded-full font-bold">
             Download
-          </button>
-        </div>
-      </div>
-
-      <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
-        <div class="flex justify-between items-center mb-5">
-          <span class="text-5xl">💪</span>
-          <span class="bg-gray-100 px-3 py-1 rounded-full text-xs font-bold uppercase">
-            Fitness
-          </span>
-        </div>
-
-        <h3 class="text-2xl font-black">Gym Planner</h3>
-        <p class="text-gray-600 mt-4 leading-7">
-          Build workout discipline and track body progress.
-        </p>
-
-        <div class="flex justify-between items-center mt-8 border-t pt-6">
-          <div>
-            <p class="text-gray-500 text-sm">50 Pages</p>
-            <h4 class="text-3xl font-black">Free</h4>
-          </div>
-
-          <button class="bg-black text-white px-5 py-3 rounded-full font-bold">
-            Download
-          </button>
-        </div>
-      </div>
-
-      <div class="bg-white border rounded-3xl p-7 hover:shadow-2xl transition">
-        <div class="flex justify-between items-center mb-5">
-          <span class="text-5xl">📚</span>
-          <span class="bg-gray-100 px-3 py-1 rounded-full text-xs font-bold uppercase">
-            Study
-          </span>
-        </div>
-
-        <h3 class="text-2xl font-black">Study Planner</h3>
-        <p class="text-gray-600 mt-4 leading-7">
-          Timetables, exams, focus sessions, and assignment tracking.
-        </p>
-
-        <div class="flex justify-between items-center mt-8 border-t pt-6">
-          <div>
-            <p class="text-gray-500 text-sm">70 Pages</p>
-            <h4 class="text-3xl font-black">Free</h4>
-          </div>
-
-          <button class="bg-black text-white px-5 py-3 rounded-full font-bold">
-            Download
-          </button>
+          </a>
         </div>
       </div>
 
@@ -256,16 +204,15 @@ body{
     <h2 class="text-4xl font-black">Built for Ambitious People</h2>
 
     <p class="text-lg text-gray-600 leading-8 mt-6 max-w-2xl mx-auto">
-      MoneyManejā helps creators, students, entrepreneurs, and professionals
-      organize their goals, money, productivity, and growth.
+      MoneyManejā helps creators and entrepreneurs organize money, productivity, and goals.
     </p>
 
     <div class="mt-10 flex flex-wrap justify-center gap-4">
-      <button class="bg-black text-white px-8 py-4 rounded-full font-bold">
+      <button onclick="scrollToProducts()" class="bg-black text-white px-8 py-4 rounded-full font-bold">
         Start Planning
       </button>
 
-      <button class="border-2 border-black px-8 py-4 rounded-full font-bold hover:bg-black hover:text-white transition">
+      <button onclick="contactUs()" class="border-2 border-black px-8 py-4 rounded-full font-bold hover:bg-black hover:text-white transition">
         Contact Us
       </button>
     </div>
@@ -275,6 +222,22 @@ body{
 <footer class="border-t py-10 text-center text-sm text-gray-500 bg-white">
   © 2026 MoneyManejā — Modern Digital Planner Store
 </footer>
+
+<script>
+function scrollToProducts() {
+  document.getElementById('products').scrollIntoView({
+    behavior: 'smooth'
+  });
+}
+
+function showDemo() {
+  alert('Demo feature coming soon!');
+}
+
+function contactUs() {
+  window.location.href = 'mailto:hellomoneymaneja@gmail.com';
+}
+</script>
 
 </body>
 </html>
